@@ -1,3 +1,39 @@
+<?php
+
+
+include("Class/function.php");
+
+session_start();
+
+$id = $_SESSION['adminID'];
+
+
+if ($id == null) {
+    header("location : index.php");
+}
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <?php include_once("includes/head.php")  ?>
 
 <body class="sb-nav-fixed">
@@ -20,23 +56,15 @@
                     if (isset($view)) {
                         if ($view == "dashboard") {
                             include("view/dash_view.php");
+                        } elseif ($view == "add_category") {
+                            include("view/add_category_view.php");
+                        } elseif ($view == "add_post") {
+                            include("view/add_post_view.php");
+                        } elseif ($view == "manage_category") {
+                            include("view/manage_category_view.php");
+                        } elseif ($view == "manage_post") {
+                            include("view/manage_post_view.php");
                         }
-
-                       elseif ($view == "add_category") {
-                        include("view/add_category_view.php") ;
-                       }
-                       elseif ($view == "add_post") {
-                        include("view/add_post_view.php") ;
-                       }
-                       elseif ($view == "manage_category") {
-                        include("view/manage_category_view.php") ;
-                       }
-                       elseif ($view == "manage_post") {
-                        include("view/manage_post_view.php") ;
-                       }
-
-
-
                     }
 
 
