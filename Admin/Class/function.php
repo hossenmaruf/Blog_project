@@ -29,26 +29,52 @@ class adminBlog
     $admin_email = $data['admin_email'];
     $admin_pass = md5(($data['admin_pass']));
 
-    $query = " SELECT * FROM admin_info WHERE admin_email = '$admin_email' && admin_pass = '$admin_pass'   ";
+    $query = " SELECT * FROM admin_info WHERE admin_email = '$admin_email' && admin_pass = '$admin_pass' ";
 
     if (mysqli_query($this->conn, $query)) {
 
-       
+
       $admin_info = mysqli_query($this->conn, $query);
 
 
       if ($admin_info) {
         header("location: dashboard.php");
-         
-          $admin_data = mysqli_fetch_assoc($admin_info) ;
-           
-           SESSION_start() ;
 
-           $_SESSION['adminID'] = $admin_data['id'] ;
-           $_SESSION['adminName'] = $admin_data['admin_name'] ;
+        $admin_data = mysqli_fetch_assoc($admin_info);
 
+        SESSION_start();
 
+        $_SESSION['adminID'] = $admin_data['id'];
+        $_SESSION['adminName'] = $admin_data['admin_name'];
       }
     }
   }
+
+
+  public function admin_logout(){
+
+
+     unset($_SESSION['adminID']) ;
+     unset($_SESSION['adminName']) ;
+       
+      header('locataion : index.php') ;
+       
+      
+  }
+
+    public function add_category ($data){
+    
+        $cat_name = $data['cat_name'] ;
+        $cat_des = $data['cat_des'] ;
+
+        $query = " INSERT INTO category (cat_name , cat_des) VALUE ( '$cat_name' , '$cat_des' )  "  ;
+       
+       if(mysqli_query($this->conn , $query)) {
+        return "categories added successfully " ;
+       }
+
+
+    }
+
+
 }
