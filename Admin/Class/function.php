@@ -51,30 +51,49 @@ class adminBlog
   }
 
 
-  public function admin_logout(){
+  public function admin_logout()
+  {
 
 
-     unset($_SESSION['adminID']) ;
-     unset($_SESSION['adminName']) ;
-       
-      header('location:index.php') ;
-       
-      
+    unset($_SESSION['adminID']);
+    unset($_SESSION['adminName']);
+
+    header('location:index.php');
   }
 
-    public function add_category ($data){
-    
-        $cat_name = $data['cat_name'] ;
-        $cat_des = $data['cat_des'] ;
+  public function add_category($data)
+  {
 
-        $query = " INSERT INTO category (cat_name , cat_des) VALUE ( '$cat_name' , '$cat_des' )"  ;
-       
-       if(mysqli_query($this->conn , $query)) {
-        return "categories added successfully " ;
-       }
+    $cat_name = $data['cat_name'];
+    $cat_des = $data['cat_des'];
 
+    $query = " INSERT INTO category (cat_name , cat_des) VALUE ( '$cat_name' , '$cat_des' )";
 
+    if (mysqli_query($this->conn, $query)) {
+      return "categories added successfully ";
     }
+  }
+
+  public function display_category()
+  {
+
+    $query = " SELECT * FROM category";
+    if (mysqli_query($this->conn, $query)) {
+      $category = mysqli_query($this->conn, $query);
+      return $category;
+    }
+  }
+
+   public function delete_category ($id){
+
+      $query = "DELETE FROM category WHERE id=$id " ;
+      if(mysqli_query($this->conn , $query)) {
+        return "deleted!!!!" ;
+      }
+
+
+
+   }
 
 
 }
