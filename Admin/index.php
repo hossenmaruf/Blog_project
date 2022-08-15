@@ -16,7 +16,7 @@ if (isset($_SESSION['adminID'])) {
 }
 
 if (isset($id)) {
-    header('location : dashboard.php');
+    header('location:dashboard.php');
 }
 
 

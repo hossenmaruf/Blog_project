@@ -57,7 +57,7 @@ class adminBlog
      unset($_SESSION['adminID']) ;
      unset($_SESSION['adminName']) ;
        
-      header('locataion : index.php') ;
+      header('location:index.php') ;
        
       
   }
@@ -67,7 +67,7 @@ class adminBlog
         $cat_name = $data['cat_name'] ;
         $cat_des = $data['cat_des'] ;
 
-        $query = " INSERT INTO category (cat_name , cat_des) VALUE ( '$cat_name' , '$cat_des' )  "  ;
+        $query = " INSERT INTO category (cat_name , cat_des) VALUE ( '$cat_name' , '$cat_des' )"  ;
        
        if(mysqli_query($this->conn , $query)) {
         return "categories added successfully " ;
