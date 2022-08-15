@@ -8,6 +8,15 @@ $cat_datas =  $obj->display_category();
          $msg =  $obj -> delete_category($delete_id) ; 
     }
    }
+
+//    if (isset($_GET['status'])) {
+//     if ($_GET['status'] = 'edit') {
+//         $id = $_GET['id'];
+
+//        $obj -> edit_category($id) ;
+//     }
+// }
+
    
 
 ?>
@@ -43,7 +52,7 @@ $cat_datas =  $obj->display_category();
                 <td><?php echo  $cat_data['cat_des'] ?> </td>
                 <td>
 
-                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="edit.php?status=edit&&id=<?php echo $cat_data['id']; ?>" class="btn btn-primary">Edit</a>
                     <a href="?status=delete&&id=<?php echo  $cat_data['id'] ?>" class="btn btn-danger">Deleted</a>
 
                 </td>
@@ -53,7 +62,7 @@ $cat_datas =  $obj->display_category();
 
         <?php     }   ?>
 
-
+      
 
 
     </tbody>

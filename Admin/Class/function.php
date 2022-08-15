@@ -84,16 +84,34 @@ class adminBlog
     }
   }
 
-   public function delete_category ($id){
+  public function delete_category($id)
+  {
 
-      $query = "DELETE FROM category WHERE id=$id " ;
-      if(mysqli_query($this->conn , $query)) {
-        return "deleted!!!!" ;
+    $query = "DELETE FROM category WHERE id=$id ";
+    if (mysqli_query($this->conn, $query)) {
+      return "deleted!!!!";
+    }
+  }
+
+  public function edit_category($data)
+  {
+
+
+      $cat_id =  $data['u_cat_id'];
+      $cat_name = $data['u_cat_name'];
+      $cat_des = $data['u_cat_des'];
+
+      $query = "UPDATE  category SET cat_name = ' $cat_name' , 
+         cat_des = '$cat_des' WHERE id = $cat_id ";
+
+
+      if (mysqli_query($this->conn, $query)) {
+          return "update 100/100";
       }
+  }
 
 
-
-   }
+  
 
 
 }

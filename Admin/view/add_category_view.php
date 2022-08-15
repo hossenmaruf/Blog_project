@@ -4,6 +4,16 @@ if (isset($_POST['add_cat'])) {
   $return_msg =  $obj->add_category($_POST);
 }
 
+  
+   if (isset($_GET['status'])) {
+    if ($_GET['status'] = 'edit') {
+        $id = $_GET['id'];
+
+       $obj -> edit_category($id) ;
+    }
+}
+
+
 
 ?>
 
