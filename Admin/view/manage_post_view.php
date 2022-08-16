@@ -46,12 +46,23 @@ $posts = $obj->display_post();
         <td> <?php echo $post_data['post_title']; ?> </td>
         <td> <?php echo $post_data['post_content']; ?> </td>
 
-        <td> <img height="50px" src="../upload/<?php echo $post_data['post_img']  ?> "> </td>
+        <td> <img height="50px" src="../upload/<?php echo $post_data['post_img']  ?> ">
+         <br>
+          <a href="edit_img.php?status=editimg&&id=<?php echo $post_data['post_id']; ?>"> Change </a>
+        
+      
+      </td>
 
         <td> <?php echo $post_data['post_author']; ?> </td>
         <td> <?php echo $post_data['post_date']; ?> </td>
         <td> <?php echo $post_data['cat_name']; ?> </td>
-        <td> <?php echo $post_data['post_status']; ?> </td>
+        <td> <?php if ($post_data['post_status'] == 1) {
+                echo "Published" ; }
+                else {
+                  echo "Unpublished" ;
+                } 
+                ?> </td>
+
         <td>
 
           <a class="btn btn-primary" href="#"> Edit </a>

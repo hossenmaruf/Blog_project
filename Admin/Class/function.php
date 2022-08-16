@@ -153,6 +153,25 @@ class adminBlog
     }
   }
 
+   public function edit_img($data){
+     
+     $id = $data['edit_img_id'] ;
+     $img_name = $_FILES['change_img']['name'] ;
+     $tmp_name = $_FILES['change_img']['tmp_name'] ;
+
+
+        $query = "UPDATE posts SET post_img = '$img_name' WHERE post_id = $id" ;
+
+         if(mysqli_query($this->conn, $query )) {
+          move_uploaded_file($tmp_name, '../upload/'.$img_name);
+          return "Thumbnail Update successfully" ;
+         }
+
+
+   }
+
+
+
 
 
 
