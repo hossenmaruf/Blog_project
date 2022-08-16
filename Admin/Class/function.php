@@ -153,26 +153,50 @@ class adminBlog
     }
   }
 
-   public function edit_img($data){
-     
-     $id = $data['edit_img_id'] ;
-     $img_name = $_FILES['change_img']['name'] ;
-     $tmp_name = $_FILES['change_img']['tmp_name'] ;
+  public function edit_img($data)
+  {
+
+    $id = $data['edit_img_id'];
+    $img_name = $_FILES['change_img']['name'];
+    $tmp_name = $_FILES['change_img']['tmp_name'];
 
 
-        $query = "UPDATE posts SET post_img = '$img_name' WHERE post_id = $id" ;
+    $query = "UPDATE posts SET post_img = '$img_name' WHERE post_id = $id";
 
-         if(mysqli_query($this->conn, $query )) {
-          move_uploaded_file($tmp_name, '../upload/'.$img_name);
-          return "Thumbnail Update successfully" ;
+    if (mysqli_query($this->conn, $query)) {
+      move_uploaded_file($tmp_name, '../upload/' . $img_name);
+      return "Thumbnail Update successfully";
+    }
+  }
+
+  public function get_post_info($id)
+  {
+
+    $query = " SELECT * FROM post_with_category where post_id = $id ";
+    if (mysqli_query($this->conn, $query)) {
+      $post_info = mysqli_query($this->conn, $query);
+      $post = mysqli_fetch_assoc($post_info);
+      return $post;
+    }
+  }
+
+   public function update_post($data){
+    
+       $post_id = $data['edit_post_id'] ;
+       $post_title = $data['change_title'] ;
+       $post_content = $data['change_content'] ;
+      
+    
+         $query = " UPDATE posts SET post_title = '$post_title' , post_content = '$post_content ' WHERE post_id = $post_id " ;
+
+         if(mysqli_query($this->conn,$query)) {
+          return "post update" ;
          }
 
 
+
+
    }
-
-
-
-
 
 
 }
