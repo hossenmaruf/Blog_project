@@ -126,24 +126,34 @@ class adminBlog
     $query = " INSERT INTO posts( post_title, post_content, post_img, post_category,post_author,post_date,post_comment_count,post_summery, post_tag ,post_status) VALUES( '$post_title', '$post_content', '$post_img',$post_category,'Admin' ,now(),3, '$post_summery' , ' $post_tag', '$post_status' )  ";
 
     if (mysqli_query($this->conn, $query)) {
-      move_uploaded_file($post_img_tmp, '../upload/'.$post_img);
+      move_uploaded_file($post_img_tmp, '../upload/' . $post_img);
       return "post Upload";
     }
   }
 
-   public function display_post (){
+  public function display_post()
+  {
 
-    $query = " SELECT * FROM post_with_category " ;
-      if(mysqli_query($this->conn , $query)) {
+    $query = " SELECT * FROM post_with_category ";
+    if (mysqli_query($this->conn, $query)) {
 
-      $posts = mysqli_query($this->conn , $query) ;
-        return $posts ;
+      $posts = mysqli_query($this->conn, $query);
+      return $posts;
+    }
+  }
 
-      }
+  public function display_post_public()
+  {
+
+    $query = " SELECT * FROM post_with_category WHERE post_status == 1 ";
+    if (mysqli_query($this->conn, $query)) {
+
+      $posts = mysqli_query($this->conn, $query);
+      return $posts;
+    }
+  }
 
 
-
-   }
 
 
 }

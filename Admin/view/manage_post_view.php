@@ -1,6 +1,6 @@
-<?php   
+<?php
 
-  $posts = $obj -> display_post() ; 
+$posts = $obj->display_post();
 
 
 
@@ -37,37 +37,37 @@
 
 
     </thead>
-   
-      <tbody <?php while($post_data = mysqli_fetch_assoc($posts)) { ?>    >
 
-        <tr>  
-            
-           <td> <?php  echo $post_data['post_id'] ; ?> </td>
-           <td> <?php  echo $post_data['post_title'] ; ?>   </td>
-           <td> <?php  echo $post_data['post_content'] ; ?>   </td>
+    <tbody <?php while ($post_data = mysqli_fetch_assoc($posts)) { ?>>
 
-           <td> <img height="50px" src="../upload/<?php echo $post_data['post_img']  ?> " >      </td>
+      <tr>
 
-           <td> <?php  echo $post_data['post_author'] ; ?>   </td>
-           <td> <?php  echo $post_data['post_date'] ; ?>   </td>
-           <td> <?php  echo $post_data['cat_name'] ; ?>   </td>
-           <td> <?php  echo $post_data['post_status'] ; ?>   </td>
-           <td>  
-    
-              <a class="btn btn-primary"   href="#"> Edit  </a>
-              <a class="btn btn-danger"   href="#"> Delete  </a>
+        <td> <?php echo $post_data['post_id']; ?> </td>
+        <td> <?php echo $post_data['post_title']; ?> </td>
+        <td> <?php echo $post_data['post_content']; ?> </td>
+
+        <td> <img height="50px" src="../upload/<?php echo $post_data['post_img']  ?> "> </td>
+
+        <td> <?php echo $post_data['post_author']; ?> </td>
+        <td> <?php echo $post_data['post_date']; ?> </td>
+        <td> <?php echo $post_data['cat_name']; ?> </td>
+        <td> <?php echo $post_data['post_status']; ?> </td>
+        <td>
+
+          <a class="btn btn-primary" href="#"> Edit </a>
+          <a class="btn btn-danger" href="#"> Delete </a>
 
 
 
-           </td>
-          
-        
-        
-        </tr> 
+        </td>
 
-        <?php     } ?>
 
-      </tbody>
+
+      </tr>
+
+    <?php     } ?>
+
+    </tbody>
 
 
 
