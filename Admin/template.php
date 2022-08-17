@@ -63,6 +63,9 @@ if (isset($_GET['adminlogout'])) {
                         elseif ($view == "edit_post") {
                             include("view/edit_post_view.php");
                         }
+                        elseif ($view == "edit_category") {
+                            include("view/edit_category_view.php");
+                        }
                     }
 
      ?>

@@ -153,6 +153,35 @@ class adminBlog
     }
   }
 
+  public function update_category($data)
+  {
+
+    $post_id = $data['edit_cat_id'];
+    $post_title = $data['update_cat_name'];
+    $post_content = $data['update_cat_des'];
+
+
+    $query = " UPDATE category SET cat_name = '$post_title' , cat_des = '$post_content ' WHERE id = $post_id ";
+
+    if (mysqli_query($this->conn, $query)) {
+      return "Category update";
+    }
+  }
+
+  public function get_category_info($data)
+  {
+
+
+    $query = " SELECT * FROM category where id = $data ";
+    if (mysqli_query($this->conn, $query)) {
+      $post_info = mysqli_query($this->conn, $query);
+      $post = mysqli_fetch_assoc($post_info);
+      return $post;
+    }
+  }
+
+
+
   public function edit_img($data)
   {
 
@@ -180,23 +209,18 @@ class adminBlog
     }
   }
 
-   public function update_post($data){
-    
-       $post_id = $data['edit_post_id'] ;
-       $post_title = $data['change_title'] ;
-       $post_content = $data['change_content'] ;
-      
-    
-         $query = " UPDATE posts SET post_title = '$post_title' , post_content = '$post_content ' WHERE post_id = $post_id " ;
+  public function update_post($data)
+  {
 
-         if(mysqli_query($this->conn,$query)) {
-          return "post update" ;
-         }
+    $post_id = $data['edit_post_id'];
+    $post_title = $data['change_title'];
+    $post_content = $data['change_content'];
 
 
+    $query = " UPDATE posts SET post_title = '$post_title' , post_content = '$post_content ' WHERE post_id = $post_id ";
 
-
-   }
-
-
+    if (mysqli_query($this->conn, $query)) {
+      return "post update";
+    }
+  }
 }

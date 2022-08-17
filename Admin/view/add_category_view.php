@@ -5,13 +5,13 @@ if (isset($_POST['add_cat'])) {
 }
 
   
-   if (isset($_GET['status'])) {
-    if ($_GET['status'] = 'edit') {
-        $id = $_GET['id'];
+//    if (isset($_GET['status'])) {
+//     if ($_GET['status'] = 'edit') {
+//         $id = $_GET['id'];
 
-       $obj -> edit_category($id) ;
-    }
-}
+//        $obj -> edit_category($id) ;
+//     }
+// }
 
 
 
