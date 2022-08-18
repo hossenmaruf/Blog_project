@@ -92,6 +92,21 @@ class adminBlog
       return "deleted!!!!";
     }
   }
+  
+  public function delete_post($delete_id){
+
+    $query = "DELETE FROM posts WHERE post_id=$delete_id ";
+
+     if (mysqli_query($this->conn, $query)) {
+
+      return "deleted!!!!";
+    }
+
+  }
+
+
+
+
 
   public function edit_category($data)
   {

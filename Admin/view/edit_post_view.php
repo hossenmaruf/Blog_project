@@ -41,7 +41,7 @@
         <input class="form-control" name="change_content" id="change_content" 
           value="<?php echo $post_data['post_content'] ; ?>" ></input>
 
-       <?php  var_dump($post_data) ;    ?>
+  
 
 
     </div>

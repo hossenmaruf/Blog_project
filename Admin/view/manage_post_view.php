@@ -2,6 +2,14 @@
 
 $posts = $obj->display_post();
 
+if (isset($_GET['status'])) {
+  if ($_GET['status'] == 'deletepost') {
+    $delete_id = $_GET['id'];
+    $msg =  $obj->delete_post($delete_id);
+  }
+}
+
+
 
 
 ?>
@@ -39,6 +47,7 @@ $posts = $obj->display_post();
     </thead>
 
     <tbody <?php while ($post_data = mysqli_fetch_assoc($posts)) { ?>>
+    
 
       <tr>
 
@@ -66,7 +75,7 @@ $posts = $obj->display_post();
         <td>
 
           <a class="btn btn-primary" href="edit_post.php?status=editpost&&id=<?php echo $post_data['post_id']; ?>"> Edit </a>
-          <a class="btn btn-danger" href="#"> Delete </a>
+          <a class="btn btn-danger" href="?status=deletepost&&id=<?php echo $post_data['post_id']; ?>"> Delete </a>
 
 
 
