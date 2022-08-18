@@ -34,7 +34,7 @@ if(isset($_GET['status'])) {
 
   <div class="form-group">
     <label class="mb-1" for="update_cat_des">Update Category Description</label>
-    <input value=" <?php echo $post_data['cat_des']   ; ?>"    name="update_cat_des" class="form-control py-4" id="update_cat_des" type="text" />
+    <input value="<?php echo $post_data['cat_des']; ?>" name="update_cat_des" class="form-control py-4" id="update_cat_des" type="text" />
   </div>
 
   <input type="submit" name="update_cat" value="Update Category " class="btn btn-primary">

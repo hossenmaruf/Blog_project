@@ -25,6 +25,7 @@
 
     <form action="" method="POST"  class="form">
 
+
         <input type="hidden" name="edit_post_id" value="<?php echo $id; ?>">
 
         <div class="form-group">
@@ -34,8 +35,13 @@
 
         <div class="form-group">
         <label  class="mb-1" for="Change_Content">Change Content</label>
-        <textarea class="form-control" name="change_content" id="change_content" cols="30" rows="10"
-          value= "<?php echo $post_data['post_content'] ; ?>" ></textarea>
+
+
+
+        <input class="form-control" name="change_content" id="change_content" 
+          value="<?php echo $post_data['post_content'] ; ?>" ></input>
+
+       <?php  var_dump($post_data) ;    ?>
 
 
     </div>
