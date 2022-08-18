@@ -17,17 +17,17 @@ $posts = $obj->display_post();
                         <div class="blog-thumb">
                             <img src="upload/<?php echo $post_data['post_img'] ?>">
                         </div>
-                        <div class="down-content">
+                        <div class="down-content"  >
                             <span><?php echo $post_data['cat_name']; ?> </span>
-                            <a href="post-details.html">
-                                <h4><?php echo $post_data['post_title']; ?></h4>
+                            <a href="single_post.php?view=postview&&id=<?php echo $post_data['post_id']; ?>">
+                                <h4 style="color : blue" ><?php echo $post_data['post_title']; ?></h4>
                             </a>
                             <ul class="post-info">
                                 <li><a href="#"><?php echo $post_data['post_author']; ?></a></li>
                                 <li><a href="#"><?php echo $post_data['post_date']; ?></a></li>
                                 <li><a href="#"><?php echo $post_data['post_comment_count']; ?></a></li>
                             </ul>
-                            <p> <?php echo $post_data['post_summery']; ?> </p>
+                            <p> <?php echo $post_data['post_content']; ?> </p>
                             <div class="post-options">
                                 <div class="row">
                                     <div class="col-6">
